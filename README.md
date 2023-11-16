@@ -34,19 +34,28 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
 Server API Endpoints
 METHOD	ENDPOINT	USAGE	RETURNS
 GET	/v1/confessions	Get a list of blog posts	An array of blog posts
+
 POST	/v1/confessions	Add a new blog post	The newly created blog post
+
 PATCH	/v1/confessions/:confessionId	Update an existing blog post	The updated blog post
+
 DELETE	/v1/confessions/:confessionId	Delete an existing blog post	Nothing (status OK)
+
 GET	/v1/confessions/:confessionId/comments	Get a list of comments for a specific post	An array of comments
+
 POST	/v1/confessions/:confessionId/comments	Add a new comment to a specific post	The newly created comment
+
 PATCH	/v1/conefessions/:confessionId	Update an existing comment	The updated comment
+
 DELETE	/v1/confessions/:confessionId	Delete an existing comment	Nothing (status OK)
+
 Post Endpoints
 Get Posts
 Request type and route:
 GET /v1/posts
 
 Response:
+
 
 [
   {
@@ -56,6 +65,7 @@ Response:
     "datePosted": 1495083077243
   }
 ]
+
 Add Post
 Request type and route:
 POST /v1/confessions
@@ -66,6 +76,7 @@ Request body:
   "title": "This is my post",
   "confessionContent": "I pushed a mug off the table. And maintained eye-contact with my owner."
 }
+
 Response:
 
 {
@@ -74,6 +85,7 @@ Response:
   "dateCreated": 1495083077243,
   "confessionContent": "I pushed a mug off the table. And maintained eye-contact with my owner."
 }
+
 Update Post
 Request type and route:
 PATCH /v1/confessions/:confessionId
@@ -92,6 +104,7 @@ Response:
   "dateCreated": 1495083077243,
   "confessionContent": "I coughed up a hairball in front of my crush."
 }
+
 Delete Post
 Request type and route:
 DELETE /v1/confessions/:confessionId
@@ -121,6 +134,7 @@ Response:
         "comment": "Really Great blog"
     }
 ]
+
 Add Comment
 Request type and route:
 POST /v1/posts/:postId/comments
