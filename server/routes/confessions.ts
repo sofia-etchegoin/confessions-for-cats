@@ -1,14 +1,14 @@
 import { Router } from 'express'
 
-import * as db from '../db/fruits.ts'
+import * as db from '../db/confessions.ts'
 
 const router = Router()
 
 router.get('/', async (req, res) => {
   try {
-    const fruits = await db.getAllFruits()
+    const confessions = await db.getAllConfessions()
 
-    res.json({ fruits: fruits.map((fruit) => fruit.name) })
+    res.json({ confessions: confessions.map((confession) => confession.name) })
   } catch (error) {
     console.log(error)
     res.status(500).json({ message: 'Something went wrong' })
