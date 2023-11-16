@@ -1,4 +1,4 @@
-# Boilerplate: Fullstack with Sass
+# Boilerplate: Confessions for Cats
 
 ## Setup
 
@@ -6,10 +6,10 @@
 
 This repo includes:
 
-* a single, simple API endpoint (`/api/v1/fruits`)
+* a single, simple API endpoint (`/api/v1/confessions`)
 * a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
+* an example database module (`server/db/confessions.js`)
+* an API client module (`client/apis/confessions.js`)
 * configuration for Vitest and testing library
 * configuration for server-side debugging in VS Code
 * configuration for preprocessing Sass
