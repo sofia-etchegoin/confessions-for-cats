@@ -82,7 +82,7 @@ Response:
 {
   "id": 144,
   "title": "This is my post",
-  "dateCreated": 1495083077243,
+  "datePosted": 1495083077243,
   "confessionContent": "I pushed a mug off the table. And maintained eye-contact with my owner."
 }
 
@@ -101,7 +101,7 @@ Response:
 {
   "id": 124,
   "title":"This is my updated post",
-  "dateCreated": 1495083077243,
+  "datePosted": 1495083077243,
   "confessionContent": "I coughed up a hairball in front of my crush."
 }
 
