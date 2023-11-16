@@ -4,14 +4,16 @@ import * as db from '../db/confessions.ts'
 
 const router = Router()
 
+//Get v1 confessions
+
 router.get('/', async (req, res) => {
   try {
     const confessions = await db.getAllConfessions()
 
-    res.json({ confessions: confessions.map((confession) => confession.name) })
+    res.json(confessions)
   } catch (error) {
     console.log(error)
-    res.status(500).json({ message: 'Something went wrong' })
+    res.status(500).json({ message: 'Rats! Somthing went wrong!' })
   }
 })
 
