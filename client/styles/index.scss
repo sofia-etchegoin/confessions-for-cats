@@ -4,3 +4,15 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+
+.mouse-img {
+
+  width: 90px;  
+  transform: rotate(-20deg);
+  transition: transform 0.2s ease
+}
+
+.mouse-img:hover {
+  transform: rotate(-40deg);
+}
