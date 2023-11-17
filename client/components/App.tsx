@@ -6,9 +6,9 @@ function App() {
   return (
     <>
       <div className="app">
-        <h1>Fullstack Boilerplate - with Confessions!</h1>
+      <h1 className="Title">Confessions for cats!</h1>
         <NewConfessionForm />
-        <h1>Confessions for cats!</h1>
+        
         <Confessions />
         <Mouse />
       </div>

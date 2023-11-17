@@ -27,7 +27,6 @@ export default function Confessions() {
   return (
     <>
       <div className="confessions">
-        Confessions
         {confessions.map((c) => (
           <Draggable key={c.id}>
             <ul>

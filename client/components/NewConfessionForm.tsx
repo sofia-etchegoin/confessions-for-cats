@@ -62,7 +62,7 @@ export function NewConfessionForm() {
         value={confessionState.confession}
         onChange={handleConfessionChange}
       />
-      <button> Add</button>
+      <button className='add'> Add</button>
     </form>
   )
 }

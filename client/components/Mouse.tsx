@@ -3,7 +3,7 @@ import mouseImg from '/mouseImg.png'
 import squeak from '/squeak.mp3'
 
 function Mouse() {
-  const [pos, setPos] = useState({ x: 0, y: 0 })
+  const [pos, setPos] = useState({ x: 800, y: 300 })
   const [showMouse, setShowMouse] = useState(true)
 
   const handleClick = () => {
