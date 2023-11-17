@@ -1,17 +1,47 @@
-// import { useConfessions } from '../hooks/useConfessions.ts'
+import { getConfessions } from '../apis/confessions'
+import { Confession } from '../../models/confessions'
+import { useQuery } from '@tanstack/react-query'
+import Draggable from 'react-draggable'
+import LoadingSpinner from './LoadingSpinner'
 
-function Confessions() {
-  // const { data } = useConfessions()
-  // <ul>{data && data.map((confessions) => <li key={confessions}>{confessions}</li>)}</ul>
+export default function Confessions() {
+  const {
+    data: confessions,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ['confessions'],
+    queryFn: () => {
+      return getConfessions()
+    },
+  })
 
+  if (isError) {
+    return <p>YEAAAAAAWWWWWOOOOOOOOOOOOOOO</p>
+  }
+
+  if (!confessions || isLoading) {
+    return <p><LoadingSpinner/></p>
+  }
+  console.log(confessions)
   return (
     <>
-      <div className="Confessions">
-        <h1>Fullstack Boilerplate - with Confessions!</h1>
-      
+      <div className="confessions">
+        Confessions
+        {confessions.map((c) => (
+          <Draggable key={c.id}>
+            <ul>
+              <li>
+                <b>Title: </b>
+                {c.title} <br />
+                <b> Confession: </b>
+                {c.confessionContent} <br />
+                <b>Date Posted: </b> {new Date(c.datePosted).toDateString()}
+              </li>
+            </ul>
+          </Draggable>
+        ))}
       </div>
     </>
   )
 }
-
-export default Confessions
