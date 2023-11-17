@@ -15,3 +15,13 @@ export function editConfession(id: number, content: string) {
       return res.body
     })
 }
+
+export async function addConfession(confession: any): Promise<string> {
+  const res = await request
+    .post(rootUrl + '/confessions')
+    .send({ content: confession.confession, title: confession.title })
+
+  return res.body
+}
+
+//.send({ title: title, content: content })
