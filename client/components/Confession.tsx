@@ -31,13 +31,13 @@ export default function Confessions() {
         {confessions.map((c) => (
           <Draggable key={c.id}>
             <ul>
-              <li>
-                <b>Title: </b>
-                {c.title} <br />
-                <b> Confession: </b>
-                {c.confessionContent} <br />
+              
+                <b>Title: <br/></b>
+                {c.title} <br /><br />
+                <b> Confession: <br/></b>
+                {c.confessionContent} <br /><br />
                 <b>Date Posted: </b> {new Date(c.datePosted).toDateString()}
-              </li>
+              
             </ul>
           </Draggable>
         ))}
