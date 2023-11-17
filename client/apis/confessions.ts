@@ -7,15 +7,13 @@ export async function getConfessions(): Promise<ConfessionData[]> {
   return res.body
 }
 
-export function editConfession(id: number, content: string) {
-  return request
+export async function editConfession(confession: any) {
+  const res = await request
     .patch(rootUrl + '/confessions')
-    .send({ content: content, id: id })
-    .then((res) => {
-      return res.body
-    })
-}
+    .send({ content: confession.content, id: confession.id })
 
+  return res.body
+}
 export async function addConfession(confession: any): Promise<string> {
   const res = await request
     .post(rootUrl + '/confessions')
