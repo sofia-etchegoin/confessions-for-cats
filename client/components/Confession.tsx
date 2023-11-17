@@ -2,6 +2,7 @@ import { getConfessions } from '../apis/confessions'
 import { Confession } from '../../models/confessions'
 import { useQuery } from '@tanstack/react-query'
 import Draggable from 'react-draggable'
+import LoadingSpinner from './LoadingSpinner'
 
 export default function Confessions() {
   const {
@@ -20,7 +21,7 @@ export default function Confessions() {
   }
 
   if (!confessions || isLoading) {
-    return <p>Loading...</p>
+    return <p><LoadingSpinner/></p>
   }
   console.log(confessions)
   return (
