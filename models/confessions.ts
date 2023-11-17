@@ -6,6 +6,6 @@ export interface Confession {
 export interface ConfessionData {
   id: number
   title: string
-  dateCreated: number
+  datePosted: number
   confessionContent: string
 }

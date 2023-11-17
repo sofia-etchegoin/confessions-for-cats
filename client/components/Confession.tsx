@@ -1,6 +1,7 @@
 import { getConfessions } from '../apis/confessions'
 import { Confession } from '../../models/confessions'
 import { useQuery } from '@tanstack/react-query'
+import Draggable from 'react-draggable'
 
 export default function Confessions() {
   const {
@@ -24,17 +25,21 @@ export default function Confessions() {
   console.log(confessions)
   return (
     <>
-      <div className="Confessions">
-        {/* {JSON.stringify(confessions)} */}
-        <div className="confessions">
-          Confessions
-          {confessions.map((c) => (
-            <li key={c.id}>
-              {c.title} <br />
-              {c.confessionContent}
-            </li>
-          ))}
-        </div>
+      <div className="confessions">
+        Confessions
+        {confessions.map((c) => (
+          <Draggable key={c.id}>
+            <ul>
+              <li>
+                <b>Title: </b>
+                {c.title} <br />
+                <b> Confession: </b>
+                {c.confessionContent} <br />
+                <b>Date Posted: </b> {new Date(c.datePosted).toDateString()}
+              </li>
+            </ul>
+          </Draggable>
+        ))}
       </div>
     </>
   )
