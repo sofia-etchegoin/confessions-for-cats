@@ -14,7 +14,7 @@ export async function seed(knex) {
     {
       title: 'Blog day 2',
       confessionContent:
-        "I scratched the beard, and friggen' loved it. Sorry not sorry.",
+        "I threw up on the hi-fi amp. These things happen.",
       datePosted: 1495083077243,
       isEdited: 0,
     },

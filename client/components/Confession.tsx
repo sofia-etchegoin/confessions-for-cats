@@ -1,10 +1,31 @@
-import { getConfessions } from '../apis/confessions'
+import { editConfession, getConfessions } from '../apis/confessions'
 import { Confession } from '../../models/confessions'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import Draggable from 'react-draggable'
 import LoadingSpinner from './LoadingSpinner'
+import { FormEvent, useState } from 'react'
 
 export default function Confessions() {
+  const [confessionState, setConfessionState] = useState({
+    title: '',
+    confession: '',
+  })
+
+  const queryClient = useQueryClient()
+
+  const editConfessionMutation = useMutation({
+    mutationFn: editConfession,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['confessions'])
+    },
+    // mutationFn: ({ title, content }) => {
+    //   addConfession(title, content)
+    // },
+    // onSuccess: () => {
+    //   queryClient.invalidateQueries(['confessions'])
+    // },
+  })
+
   const {
     data: confessions,
     isError,
@@ -21,23 +42,79 @@ export default function Confessions() {
   }
 
   if (!confessions || isLoading) {
-    return <p><LoadingSpinner/></p>
+    return (
+      <p>
+        <LoadingSpinner />
+      </p>
+    )
   }
+
+  function handleTitleChange(e: any) {
+    const stateObj = {
+      ...confessionState,
+      title: e.target.value,
+    }
+    setConfessionState(stateObj)
+  }
+
+  function handleConfessionChange(e: any) {
+    const stateObj = {
+      ...confessionState,
+      confession: e.target.value,
+    }
+    setConfessionState(stateObj)
+  }
+
   console.log(confessions)
   return (
     <>
       <div className="confessions">
-        Confessions
         {confessions.map((c) => (
           <Draggable key={c.id}>
             <ul>
-              
-                <b>Title: <br/></b>
-                {c.title} <br /><br />
-                <b> Confession: <br/></b>
-                {c.confessionContent} <br /><br />
-                <b>Date Posted: </b> {new Date(c.datePosted).toDateString()}
-              
+              <b>
+                Title: <br />
+              </b>
+              {c.title} <br />
+              <br />
+              <b>
+                {' '}
+                Confession: <br />
+              </b>
+              {c.confessionContent} <br />
+              <br />
+              <b>Date Posted: </b> {new Date(c.datePosted).toDateString()}
+              <form
+                action="/"
+                onSubmit={(e) => {
+                  e.preventDefault()
+                  console.log(e)
+
+                  const obj = {
+                    id: c.id,
+                    content: c.confessionContent,
+                  }
+
+                  editConfessionMutation.mutate(obj)
+                }}
+                method="patch"
+              >
+                <label htmlFor="title">Title: </label>
+                <input
+                  type="text"
+                  id="title"
+                  value={confessionState.title}
+                  onChange={handleTitleChange}
+                />
+                <label htmlFor="confessionContent">Confession: </label>
+                <input
+                  type="text"
+                  id="confessionContent"
+                  value={confessionState.confession}
+                  onChange={handleConfessionChange}
+                />
+                <input id="edit" type="submit" /> Edit
+              </form>
             </ul>
           </Draggable>
         ))}
