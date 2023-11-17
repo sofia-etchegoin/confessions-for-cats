@@ -4,3 +4,45 @@ html,
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.mouse-img {
+
+  width: 90px;  
+  transform: rotate(-20deg);
+  transition: transform 0.2s ease
+}
+
+.mouse-img:hover {
+  transform: rotate(-40deg);
+}
+
+li {
+
+  
+}
+
+ul {
+  border: 3px solid rgb(110, 110, 110);
+  border-radius: 30px;
+  padding: 20px;
+  width: fit-content;
+  background-color: transparentize($color: pink, $amount: .5);
+  font-family: monospace;
+  font-size: x-large;
+
+}
+
+b {
+  font-family: monospace;
+  font-size: x-large;
+}
+
+.app {
+  
+}

@@ -1,8 +1,11 @@
 export interface Confession {
-  id: number
-  name: string
+  title: string
+  confessionContent: string
 }
 
 export interface ConfessionData {
-  name: string
+  id: number
+  title: string
+  datePosted: number
+  confessionContent: string
 }
