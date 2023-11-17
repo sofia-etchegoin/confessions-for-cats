@@ -12,3 +12,10 @@ export async function editConfession(id: number, content: string) {
     .where('id', id)
   return connection('confession').select('*').where('id', id)
 }
+export async function insertConfession(title: string, content: string) {
+  const currentDate = new Date()
+  await connection('confession').insert([
+    { title , confessionContent: content, isEdited: 0, datePosted: currentDate },
+  ])
+  return connection('confession').select('*')
+}
