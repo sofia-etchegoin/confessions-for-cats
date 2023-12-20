@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addConfession } from '../apis/confessions'
 import { FormEvent, useState } from 'react'
-import { Confession } from '../../models/confessions'
 
 export function NewConfessionForm() {
   const queryClient = useQueryClient()
@@ -16,12 +15,6 @@ export function NewConfessionForm() {
     onSuccess: () => {
       queryClient.invalidateQueries(['confessions'])
     },
-    // mutationFn: ({ title, content }) => {
-    //   addConfession(title, content)
-    // },
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries(['confessions'])
-    // },
   })
   function handleTitleChange(e: any) {
     const stateObj = {
@@ -62,7 +55,7 @@ export function NewConfessionForm() {
         value={confessionState.confession}
         onChange={handleConfessionChange}
       />
-      <button className='add'> Add</button>
+      <button className="add">Add</button>
     </form>
   )
 }

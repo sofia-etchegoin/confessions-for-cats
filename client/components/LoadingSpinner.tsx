@@ -1,5 +1,3 @@
-import ballofYarn from 'public/ball-of-yarn.png'
-
 export default function LoadingSpinner() {
   return (
     <div className="yarn">

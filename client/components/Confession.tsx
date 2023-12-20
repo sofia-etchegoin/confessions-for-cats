@@ -1,9 +1,8 @@
 import { editConfession, getConfessions } from '../apis/confessions'
-import { Confession } from '../../models/confessions'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import Draggable from 'react-draggable'
 import LoadingSpinner from './LoadingSpinner'
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 
 export default function Confessions() {
   const [confessionState, setConfessionState] = useState({
@@ -18,12 +17,6 @@ export default function Confessions() {
     onSuccess: () => {
       queryClient.invalidateQueries(['confessions'])
     },
-    // mutationFn: ({ title, content }) => {
-    //   addConfession(title, content)
-    // },
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries(['confessions'])
-    // },
   })
 
   const {

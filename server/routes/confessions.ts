@@ -4,7 +4,7 @@ import * as db from '../db/confessions.ts'
 
 const router = Router()
 
-//Get v1 confessions
+//GET confessions
 
 router.get('/', async (req, res) => {
   try {
@@ -16,6 +16,8 @@ router.get('/', async (req, res) => {
   }
 })
 
+// PATCH confessions
+
 router.patch('/', async (req, res) => {
   try {
     const confession = await db.editConfession(req.body.id, req.body.content)
@@ -26,6 +28,9 @@ router.patch('/', async (req, res) => {
     res.status(500).json({ message: 'Rats! Somthing went wrong!' })
   }
 })
+
+// POST confessions
+
 router.post('/', async (req, res) => {
   try {
     const { title, content } = req.body

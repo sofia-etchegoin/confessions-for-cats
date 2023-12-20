@@ -6,9 +6,8 @@ function App() {
   return (
     <>
       <div className="app">
-      <h1 className="Title">Confessions for cats!</h1>
+        <h1 className="Title">Confessions for cats!</h1>
         <NewConfessionForm />
-        
         <Confessions />
         <Mouse />
       </div>
